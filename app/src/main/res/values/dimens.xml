@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="space_xxs">2dp</dimen>
+    <dimen name="space_xs">4dp</dimen>
+    <dimen name="space_s">8dp</dimen>
+    <dimen name="space_m">12dp</dimen>
+    <dimen name="space_l">16dp</dimen>
+    <dimen name="space_xl">24dp</dimen>
+    <dimen name="space_xxl">32dp</dimen>
+
+    <dimen name="card_radius">12dp</dimen>
+    <dimen name="card_radius_small">8dp</dimen>
+
+    <dimen name="touch_min">48dp</dimen>
+
+    <dimen name="game_card_size">90dp</dimen>
+    <dimen name="game_grid_height">200dp</dimen>
+    <dimen name="featured_height">150dp</dimen>
+    <dimen name="platform_card_height">80dp</dimen>
+    <dimen name="emulator_row_height">72dp</dimen>
+    <dimen name="avatar_size">36dp</dimen>
+</resources>

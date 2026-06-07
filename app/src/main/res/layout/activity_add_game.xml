@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_root"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/space_l">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/btn_close"
+                android:layout_width="@dimen/touch_min"
+                android:layout_height="@dimen/touch_min"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="@dimen/space_m"
+                android:src="@drawable/ic_close"
+                android:contentDescription="close"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_s"
+                android:text="@string/add_game"
+                android:textColor="@color/text_primary"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_l"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/cover_preview"
+                android:layout_width="100dp"
+                android:layout_height="140dp"
+                android:background="@drawable/bg_card_small"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_image"
+                android:contentDescription="cover preview"/>
+
+            <Button
+                android:id="@+id/btn_pick_cover"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_m"
+                android:text="@string/change_image"
+                android:textColor="@color/text_primary"/>
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/input_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_l"
+            android:hint="@string/title_hint"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_dim"
+            android:inputType="text"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_l"
+            android:text="Platform"
+            android:textColor="@color/text_muted"
+            android:textSize="12sp"/>
+
+        <Spinner
+            android:id="@+id/spinner_platform"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_l"
+            android:text="Emulator"
+            android:textColor="@color/text_muted"
+            android:textSize="12sp"/>
+
+        <Spinner
+            android:id="@+id/spinner_emulator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_l"
+            android:text="Genre"
+            android:textColor="@color/text_muted"
+            android:textSize="12sp"/>
+
+        <Spinner
+            android:id="@+id/spinner_genre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_l"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <EditText
+                android:id="@+id/input_rom"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/rom_path_hint"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_dim"
+                android:inputType="text"/>
+
+            <ImageView
+                android:id="@+id/btn_pick_rom"
+                android:layout_width="@dimen/touch_min"
+                android:layout_height="@dimen/touch_min"
+                android:layout_marginStart="@dimen/space_s"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="@dimen/space_m"
+                android:src="@drawable/ic_folder"
+                android:contentDescription="@string/pick_rom"/>
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/input_args"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_s"
+            android:hint="@string/custom_args_hint"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_dim"
+            android:inputType="text"/>
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_xl"
+            android:background="@drawable/bg_play_button"
+            android:text="@string/save"
+            android:textColor="@color/text_primary"
+            android:textStyle="bold"/>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

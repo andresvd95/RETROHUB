@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_home"
+        android:title="@string/tab_home"
+        android:icon="@drawable/ic_home"/>
+    <item android:id="@+id/nav_library"
+        android:title="@string/tab_library"
+        android:icon="@drawable/ic_library"/>
+    <item android:id="@+id/nav_platforms"
+        android:title="@string/tab_platforms"
+        android:icon="@drawable/ic_grid"/>
+    <item android:id="@+id/nav_emulators"
+        android:title="@string/tab_emulators"
+        android:icon="@drawable/ic_gamepad"/>
+    <item android:id="@+id/nav_settings"
+        android:title="@string/tab_settings"
+        android:icon="@drawable/ic_settings"/>
+</menu>
