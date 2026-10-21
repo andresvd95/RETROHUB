@@ -1,6 +1,8 @@
 package com.retrohub.launcher.ui.main;
 
 import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.Menu;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -92,6 +94,23 @@ public class MainActivity extends AppCompatActivity {
             .replace(R.id.fragment_container, frag)
             .commit();
         bottomNav.setSelectedItemId(R.id.nav_library);
+    }
+
+    /** Controller support: L1 / R1 move between tabs. */
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BUTTON_L1 || keyCode == KeyEvent.KEYCODE_BUTTON_R1) {
+            Menu menu = bottomNav.getMenu();
+            int count = menu.size();
+            int current = 0;
+            for (int i = 0; i < count; i++) {
+                if (menu.getItem(i).getItemId() == bottomNav.getSelectedItemId()) current = i;
+            }
+            int step = keyCode == KeyEvent.KEYCODE_BUTTON_R1 ? 1 : -1;
+            bottomNav.setSelectedItemId(menu.getItem((current + step + count) % count).getItemId());
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     @Override

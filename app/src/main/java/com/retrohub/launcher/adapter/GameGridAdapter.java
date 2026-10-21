@@ -29,6 +29,7 @@ public class GameGridAdapter extends RecyclerView.Adapter<GameGridAdapter.VH> {
 
     public interface OnGameAction {
         void onClick(GameEntry game);
+        void onPlay(GameEntry game);
         void onEdit(GameEntry game);
         void onDelete(GameEntry game);
         void onToggleFavorite(GameEntry game);
@@ -67,13 +68,12 @@ public class GameGridAdapter extends RecyclerView.Adapter<GameGridAdapter.VH> {
         h.playtime.setText(TimeUtils.formatPlayTimeShort(g.playTimeSeconds));
         h.fav.setImageResource(g.isFavorite ? R.drawable.ic_star : R.drawable.ic_star_outline);
         h.fav.setOnClickListener(v -> { if (listener != null) listener.onToggleFavorite(g); });
+        h.quickPlay.setOnClickListener(v -> { if (listener != null) listener.onPlay(g); });
 
         if (g.coverUri != null && !g.coverUri.isEmpty()) {
             h.cover.setVisibility(View.VISIBLE);
             h.emoji.setVisibility(View.GONE);
-            Glide.with(h.cover).load(new File(g.coverUri))
-                .centerCrop()
-                .into(h.cover);
+            Glide.with(h.cover).load(new File(g.coverUri)).centerCrop().into(h.cover);
         } else {
             h.cover.setVisibility(View.GONE);
             h.emoji.setVisibility(View.VISIBLE);
@@ -104,7 +104,7 @@ public class GameGridAdapter extends RecyclerView.Adapter<GameGridAdapter.VH> {
 
     static class VH extends RecyclerView.ViewHolder {
         View background;
-        ImageView cover, fav;
+        ImageView cover, fav, quickPlay;
         TextView emoji, title, platform, playtime;
         VH(View v) {
             super(v);
@@ -115,6 +115,7 @@ public class GameGridAdapter extends RecyclerView.Adapter<GameGridAdapter.VH> {
             platform = v.findViewById(R.id.platform);
             playtime = v.findViewById(R.id.playtime);
             fav = v.findViewById(R.id.fav);
+            quickPlay = v.findViewById(R.id.quick_play);
         }
     }
 }

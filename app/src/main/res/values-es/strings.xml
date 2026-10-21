@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RetroHub</string>
+
+    <string name="tab_home">Inicio</string>
+    <string name="tab_library">Biblioteca</string>
+    <string name="tab_platforms">Plataformas</string>
+    <string name="tab_emulators">Emuladores</string>
+    <string name="tab_settings">Ajustes</string>
+
+    <string name="filter_all">Todos</string>
+    <string name="filter_favorites">Favoritos</string>
+    <string name="filter_recent">Recientes</string>
+    <string name="recently_played">JUGADOS RECIENTEMENTE</string>
+    <string name="platforms">PLATAFORMAS</string>
+    <string name="recommended">RECOMENDADOS</string>
+    <string name="featured_subtitle">Última partida · %1$s jugado</string>
+    <string name="home_stats_format">%1$d juegos · %2$d plataformas</string>
+
+    <string name="quick_start_title">Prepara tu biblioteca</string>
+    <string name="quick_start_body">Conecta un emulador y después agrega una ROM. RetroHub lo organiza todo y la inicia con un toque.</string>
+    <string name="quick_start_emulator">1  AGREGAR EMULADOR</string>
+    <string name="quick_start_game">2  AGREGAR JUEGO</string>
+
+    <string name="play">▶ JUGAR</string>
+    <string name="edit">Editar</string>
+    <string name="delete">Eliminar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="save">GUARDAR</string>
+    <string name="close">Cerrar</string>
+    <string name="add_game">Agregar juego</string>
+    <string name="add_emulator">Agregar emulador</string>
+    <string name="edit_game">Editar juego</string>
+
+    <string name="title_hint">Título</string>
+    <string name="package_hint">Paquete (ej. org.ppsspp.ppsspp)</string>
+    <string name="activity_hint">Actividad (opcional)</string>
+    <string name="rom_path_hint">Ruta de ROM / ISO (opcional)</string>
+    <string name="custom_args_hint">Argumentos personalizados (opcional)</string>
+    <string name="detect_apps">Detectar aplicaciones instaladas</string>
+    <string name="known_emulator">Elegir un emulador conocido</string>
+    <string name="change_image">Cambiar portada</string>
+    <string name="pick_rom">Elegir ROM…</string>
+    <string name="rom_step_hint">Elige primero una ROM y RetroHub completará su título.</string>
+    <string name="platform_label">Plataforma</string>
+    <string name="emulator_label">Emulador</string>
+    <string name="genre_label">Género</string>
+    <string name="icon_label">Icono</string>
+    <string name="emulator_icon_description">Icono del emulador</string>
+    <string name="no_emulator_title">No hay un emulador para esta plataforma</string>
+    <string name="no_emulator_body">Agrégalo ahora y vuelve aquí. Los datos del juego permanecerán en pantalla.</string>
+    <string name="configure_emulator">CONFIGURAR EMULADOR</string>
+    <string name="required_field">Campo obligatorio</string>
+    <string name="pick_platform_error">Elige una plataforma</string>
+    <string name="pick_emulator_error">Configura primero un emulador para esta plataforma</string>
+    <string name="no_emulator_assigned">Este juego no tiene un emulador asignado</string>
+    <string name="could_not_open_emulator">No se pudo abrir %1$s</string>
+    <string name="emulator_not_installed_title">%1$s no está instalado</string>
+    <string name="emulator_not_installed_body">¿Deseas buscarlo en Play Store?</string>
+    <string name="search_action">Buscar</string>
+
+    <string name="empty_games">Todavía no hay juegos</string>
+    <string name="empty_games_sub">Toca + para agregar tu primer juego</string>
+    <string name="empty_emulators">Todavía no hay emuladores</string>
+    <string name="empty_emulators_sub">Toca + para agregar un emulador</string>
+    <string name="empty_no_games_for_filter">No hay juegos en este filtro</string>
+    <string name="no_search_results">No se encontraron juegos</string>
+    <string name="no_games_yet">Todavía no hay juegos</string>
+    <string name="add_first_game_here">Agrega tu primer juego para verlo aquí</string>
+    <string name="search_hint">Buscar juegos y plataformas</string>
+    <string name="hours_format">%1$s jugado</string>
+
+    <string name="confirm_delete_title">Eliminar</string>
+    <string name="confirm_delete_msg">Esta acción no se puede deshacer. ¿Deseas continuar?</string>
+    <string name="sort_name">Nombre A–Z</string>
+    <string name="sort_most_played">Más jugados</string>
+    <string name="sort_recent">Recientes</string>
+    <string name="sort_by_platform">Por plataforma</string>
+
+    <string name="settings_about">Acerca de RetroHub</string>
+    <string name="settings_about_body">RetroHub es un launcher sin conexión para los emuladores instalados en tu dispositivo. Agrega emuladores, vincula tus juegos e inícialos con un toque. El tiempo de juego se registra automáticamente.</string>
+    <string name="settings_version">Versión</string>
+    <string name="settings_reset_db">Borrar todos los datos</string>
+    <string name="settings_reset_db_msg">Se eliminarán todos los emuladores y juegos agregados. ¿Deseas continuar?</string>
+
+    <string name="close_description">Cerrar</string>
+    <string name="cover_description">Portada del juego</string>
+    <string name="favorite_description">Favorito</string>
+    <string name="sort_description">Ordenar juegos</string>
+
+    <string-array name="genres">
+        <item>Acción</item>
+        <item>RPG</item>
+        <item>Plataformas</item>
+        <item>Carreras</item>
+        <item>Lucha</item>
+        <item>Deportes</item>
+        <item>Aventura</item>
+        <item>Estrategia</item>
+        <item>Simulación</item>
+        <item>Terror</item>
+        <item>Rompecabezas</item>
+        <item>Disparos</item>
+    </string-array>
+    <string name="import_folder_title">¿Tienes una carpeta llena de juegos?</string>
+    <string name="import_folder_body">Elige arriba la plataforma y el emulador, luego selecciona la carpeta. Todos los juegos se agregan de una vez.</string>
+    <string name="import_folder_action">IMPORTAR CARPETA COMPLETA</string>
+    <string name="import_folder_scanning">Buscando juegos…</string>
+    <string name="import_folder_none">No se encontraron juegos nuevos en esa carpeta</string>
+    <plurals name="import_folder_done">
+        <item quantity="one">%d juego agregado</item>
+        <item quantity="many">%d juegos agregados</item>
+        <item quantity="other">%d juegos agregados</item>
+    </plurals>
+    <string name="settings_set_home">Usar RetroHub como pantalla de inicio</string>
+    <string name="settings_recheck">Volver a detectar emuladores</string>
+</resources>

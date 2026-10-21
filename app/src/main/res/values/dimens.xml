@@ -13,7 +13,7 @@
 
     <dimen name="touch_min">48dp</dimen>
 
-    <dimen name="game_card_size">90dp</dimen>
+    <dimen name="game_card_size">112dp</dimen>
     <dimen name="game_grid_height">200dp</dimen>
     <dimen name="featured_height">150dp</dimen>
     <dimen name="platform_card_height">80dp</dimen>

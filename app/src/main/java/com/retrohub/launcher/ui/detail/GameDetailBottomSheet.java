@@ -137,9 +137,10 @@ public class GameDetailBottomSheet extends BottomSheetDialogFragment {
             playBtn.setText("No emulator assigned");
             return;
         }
-        SessionTimer.start(requireContext(), currentGame.id);
-        vm.games.markPlayedNow(currentGame.id);
-        AppLauncher.launch(requireContext(), currentGame, currentEmulator);
-        dismiss();
+        if (AppLauncher.launch(requireContext(), currentGame, currentEmulator)) {
+            SessionTimer.start(requireContext(), currentGame.id);
+            vm.games.markPlayedNow(currentGame.id);
+            dismiss();
+        }
     }
 }

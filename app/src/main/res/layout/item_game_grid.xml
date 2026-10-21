@@ -31,12 +31,23 @@
 
         <ImageView
             android:id="@+id/fav"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="@dimen/touch_min"
+            android:layout_height="@dimen/touch_min"
             android:layout_gravity="top|end"
-            android:padding="4dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="12dp"
             android:src="@drawable/ic_star_outline"
-            android:contentDescription="favorite"/>
+            android:contentDescription="@string/favorite_description"/>
+
+        <ImageView
+            android:id="@+id/quick_play"
+            android:layout_width="@dimen/touch_min"
+            android:layout_height="@dimen/touch_min"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_quick_play"
+            android:contentDescription="@string/play"
+            android:padding="15dp"
+            android:src="@drawable/ic_play"/>
 
         <LinearLayout
             android:layout_width="match_parent"

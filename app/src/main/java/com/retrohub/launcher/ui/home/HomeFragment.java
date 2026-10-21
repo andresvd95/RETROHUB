@@ -23,6 +23,8 @@ import com.retrohub.launcher.adapter.PlatformCompactAdapter;
 import com.retrohub.launcher.data.model.GameEntry;
 import com.retrohub.launcher.data.model.Platform;
 import com.retrohub.launcher.ui.detail.GameDetailBottomSheet;
+import com.retrohub.launcher.ui.emulators.AddEmulatorActivity;
+import com.retrohub.launcher.ui.game.AddGameActivity;
 import com.retrohub.launcher.ui.main.MainActivity;
 import com.retrohub.launcher.ui.search.SearchActivity;
 import com.retrohub.launcher.util.ColorUtils;
@@ -54,6 +56,7 @@ public class HomeFragment extends Fragment {
     private RecyclerView recommendedRv;
     private RecyclerView filteredRv;
     private TextView filteredEmpty;
+    private View quickStartCard;
 
     private GameCardAdapter recentsAdapter;
     private GameCardAdapter recommendedAdapter;
@@ -89,9 +92,14 @@ public class HomeFragment extends Fragment {
         recommendedRv = v.findViewById(R.id.recommended_rv);
         filteredRv = v.findViewById(R.id.home_filtered_rv);
         filteredEmpty = v.findViewById(R.id.home_filtered_empty);
+        quickStartCard = v.findViewById(R.id.quick_start_card);
 
         v.findViewById(R.id.home_search).setOnClickListener(view ->
             startActivity(new Intent(requireContext(), SearchActivity.class)));
+        v.findViewById(R.id.quick_add_emulator).setOnClickListener(view ->
+            startActivity(new Intent(requireContext(), AddEmulatorActivity.class)));
+        v.findViewById(R.id.quick_add_game).setOnClickListener(view ->
+            startActivity(new Intent(requireContext(), AddGameActivity.class)));
 
         recentsAdapter = new GameCardAdapter(platformIndex, this::openDetail);
         recommendedAdapter = new GameCardAdapter(platformIndex, this::openDetail);
@@ -105,10 +113,11 @@ public class HomeFragment extends Fragment {
         recommendedRv.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
         recommendedRv.setAdapter(recommendedAdapter);
 
-        platformsRv.setLayoutManager(new GridLayoutManager(requireContext(), 4));
+        int screenWidthDp = getResources().getConfiguration().screenWidthDp;
+        platformsRv.setLayoutManager(new GridLayoutManager(requireContext(), Math.max(4, screenWidthDp / 96)));
         platformsRv.setAdapter(platformsAdapter);
 
-        filteredRv.setLayoutManager(new GridLayoutManager(requireContext(), 3));
+        filteredRv.setLayoutManager(new GridLayoutManager(requireContext(), Math.max(3, screenWidthDp / 132)));
         filteredRv.setAdapter(filteredAdapter);
 
         observe();
@@ -130,7 +139,8 @@ public class HomeFragment extends Fragment {
             allGames = games == null ? Collections.emptyList() : games;
             int count = allGames.size();
             int platformCount = countPlatformsWithGames();
-            statsLabel.setText(count + " games · " + platformCount + " platforms");
+            statsLabel.setText(getString(R.string.home_stats_format, count, platformCount));
+            quickStartCard.setVisibility(count == 0 ? View.VISIBLE : View.GONE);
             rebuildTabs();
         });
 

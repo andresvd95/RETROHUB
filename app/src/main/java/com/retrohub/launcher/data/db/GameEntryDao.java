@@ -65,6 +65,12 @@ public interface GameEntryDao {
     @Query("UPDATE game_entries SET isFavorite = :favorite WHERE id = :gameId")
     void setFavorite(int gameId, boolean favorite);
 
+    @Insert
+    void insertAll(List<GameEntry> games);
+
+    @Query("SELECT romPath FROM game_entries WHERE romPath IS NOT NULL")
+    List<String> getAllRomPathsSync();
+
     @Query("SELECT COUNT(*) FROM game_entries")
     LiveData<Integer> observeCount();
 

@@ -25,7 +25,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:padding="@dimen/space_m"
                 android:src="@drawable/ic_close"
-                android:contentDescription="close"/>
+                android:contentDescription="@string/close_description"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -90,7 +90,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_l"
-            android:text="Platform"
+            android:text="@string/platform_label"
             android:textColor="@color/text_muted"
             android:textSize="12sp"/>
 
@@ -104,7 +104,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_l"
-            android:text="Icon"
+            android:text="@string/icon_label"
             android:textColor="@color/text_muted"
             android:textSize="12sp"/>
 
@@ -121,7 +121,7 @@
                 android:layout_height="64dp"
                 android:background="@drawable/bg_card_small"
                 android:src="@drawable/ic_gamepad"
-                android:contentDescription="icon preview"/>
+                android:contentDescription="@string/emulator_icon_description"/>
 
             <Button
                 android:id="@+id/btn_change_icon"

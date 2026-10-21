@@ -25,7 +25,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:padding="@dimen/space_m"
                 android:src="@drawable/ic_close"
-                android:contentDescription="close"/>
+                android:contentDescription="@string/close_description"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -51,7 +51,7 @@
                 android:background="@drawable/bg_card_small"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_image"
-                android:contentDescription="cover preview"/>
+                android:contentDescription="@string/cover_description"/>
 
             <Button
                 android:id="@+id/btn_pick_cover"
@@ -61,6 +61,42 @@
                 android:layout_marginStart="@dimen/space_m"
                 android:text="@string/change_image"
                 android:textColor="@color/text_primary"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_l"
+            android:text="@string/rom_step_hint"
+            android:textColor="@color/text_muted"
+            android:textSize="13sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_s"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/input_rom"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/rom_path_hint"
+                android:inputType="text"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_dim"/>
+
+            <ImageView
+                android:id="@+id/btn_pick_rom"
+                android:layout_width="@dimen/touch_min"
+                android:layout_height="@dimen/touch_min"
+                android:layout_marginStart="@dimen/space_s"
+                android:background="@drawable/bg_quick_play"
+                android:contentDescription="@string/pick_rom"
+                android:padding="@dimen/space_m"
+                android:src="@drawable/ic_folder"/>
         </LinearLayout>
 
         <EditText
@@ -77,7 +113,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_l"
-            android:text="Platform"
+            android:text="@string/platform_label"
             android:textColor="@color/text_muted"
             android:textSize="12sp"/>
 
@@ -90,7 +126,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_l"
-            android:text="Emulator"
+            android:text="@string/emulator_label"
             android:textColor="@color/text_muted"
             android:textSize="12sp"/>
 
@@ -99,11 +135,83 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
+        <LinearLayout
+            android:id="@+id/no_emulator_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_s"
+            android:background="@drawable/bg_card_surface"
+            android:orientation="vertical"
+            android:padding="@dimen/space_l"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_emulator_title"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_xs"
+                android:text="@string/no_emulator_body"
+                android:textColor="@color/text_muted"
+                android:textSize="12sp"/>
+
+            <Button
+                android:id="@+id/btn_add_emulator"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/touch_min"
+                android:layout_marginTop="@dimen/space_s"
+                android:text="@string/configure_emulator"
+                android:textColor="@color/brand_red"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/import_folder_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_m"
+            android:background="@drawable/bg_card_surface"
+            android:orientation="vertical"
+            android:padding="@dimen/space_l">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/import_folder_title"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_xs"
+                android:text="@string/import_folder_body"
+                android:textColor="@color/text_muted"
+                android:textSize="12sp"/>
+
+            <Button
+                android:id="@+id/btn_import_folder"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/touch_min"
+                android:layout_marginTop="@dimen/space_s"
+                android:text="@string/import_folder_action"
+                android:textColor="@color/text_primary"/>
+        </LinearLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_l"
-            android:text="Genre"
+            android:text="@string/genre_label"
             android:textColor="@color/text_muted"
             android:textSize="12sp"/>
 
@@ -111,34 +219,6 @@
             android:id="@+id/spinner_genre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_l"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
-
-            <EditText
-                android:id="@+id/input_rom"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="@string/rom_path_hint"
-                android:textColor="@color/text_primary"
-                android:textColorHint="@color/text_dim"
-                android:inputType="text"/>
-
-            <ImageView
-                android:id="@+id/btn_pick_rom"
-                android:layout_width="@dimen/touch_min"
-                android:layout_height="@dimen/touch_min"
-                android:layout_marginStart="@dimen/space_s"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:padding="@dimen/space_m"
-                android:src="@drawable/ic_folder"
-                android:contentDescription="@string/pick_rom"/>
-        </LinearLayout>
 
         <EditText
             android:id="@+id/input_args"

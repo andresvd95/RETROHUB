@@ -46,12 +46,21 @@
             android:textSize="11sp"/>
 
         <Button
+            android:id="@+id/btn_set_home"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_xl"
+            android:text="@string/settings_set_home"
+            android:textColor="@color/text_primary"/>
+
+        <Button
             android:id="@+id/btn_refresh_install"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_xl"
-            android:text="Re-check installed emulators"
+            android:text="@string/settings_recheck"
             android:textColor="@color/text_primary"/>
 
         <Button

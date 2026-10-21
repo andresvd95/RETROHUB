@@ -39,7 +39,7 @@
         <item name="android:textColor">@color/text_primary</item>
     </style>
 
-    <style name="Text.SectionLabel">
+    <style name="Text.SectionLabel" parent="">
         <item name="android:textSize">10sp</item>
         <item name="android:textColor">@color/text_faint</item>
         <item name="android:letterSpacing">0.18</item>
@@ -47,7 +47,7 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="RetroHub.Chip">
+    <style name="RetroHub.Chip" parent="">
         <item name="android:paddingStart">@dimen/space_s</item>
         <item name="android:paddingEnd">@dimen/space_s</item>
         <item name="android:paddingTop">2dp</item>

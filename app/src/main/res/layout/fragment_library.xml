@@ -38,7 +38,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:padding="@dimen/space_m"
                 android:src="@drawable/ic_sort"
-                android:contentDescription="sort"/>
+                android:contentDescription="@string/sort_description"/>
         </LinearLayout>
 
         <HorizontalScrollView

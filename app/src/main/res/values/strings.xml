@@ -16,6 +16,11 @@
     <string name="platforms">PLATFORMS</string>
     <string name="recommended">RECOMMENDED</string>
     <string name="featured_subtitle">Last played · %1$s played</string>
+    <string name="home_stats_format">%1$d games · %2$d platforms</string>
+    <string name="quick_start_title">Set up your game shelf</string>
+    <string name="quick_start_body">Connect an emulator, then add a ROM. RetroHub keeps everything together and launches it in one tap.</string>
+    <string name="quick_start_emulator">1  ADD EMULATOR</string>
+    <string name="quick_start_game">2  ADD GAME</string>
 
     <string name="play">▶ PLAY</string>
     <string name="edit">Edit</string>
@@ -37,6 +42,23 @@
     <string name="known_emulator">Pick a known emulator</string>
     <string name="change_image">Change image</string>
     <string name="pick_rom">Pick ROM…</string>
+    <string name="rom_step_hint">Choose a ROM first and RetroHub will fill in its title.</string>
+    <string name="platform_label">Platform</string>
+    <string name="emulator_label">Emulator</string>
+    <string name="genre_label">Genre</string>
+    <string name="icon_label">Icon</string>
+    <string name="emulator_icon_description">Emulator icon</string>
+    <string name="no_emulator_title">No emulator for this platform</string>
+    <string name="no_emulator_body">Add one now, then come back here. Your game details will stay on screen.</string>
+    <string name="configure_emulator">CONFIGURE EMULATOR</string>
+    <string name="required_field">Required</string>
+    <string name="pick_platform_error">Pick a platform</string>
+    <string name="pick_emulator_error">Configure an emulator for this platform first</string>
+    <string name="no_emulator_assigned">No emulator is assigned to this game</string>
+    <string name="could_not_open_emulator">Could not open %1$s</string>
+    <string name="emulator_not_installed_title">%1$s is not installed</string>
+    <string name="emulator_not_installed_body">Would you like to find it on the Play Store?</string>
+    <string name="search_action">Search</string>
 
     <string name="empty_games">No games yet</string>
     <string name="empty_games_sub">Tap the + button to add your first game</string>
@@ -45,6 +67,11 @@
     <string name="empty_no_games_for_filter">Nothing here yet</string>
     <string name="no_search_results">No games found</string>
     <string name="no_games_yet">No games yet</string>
+    <string name="add_first_game_here">Add your first game to see it here</string>
+    <string name="close_description">Close</string>
+    <string name="cover_description">Game cover</string>
+    <string name="favorite_description">Favorite</string>
+    <string name="sort_description">Sort games</string>
 
     <string name="search_hint">Search games and platforms</string>
     <string name="hours_format">%1$s played</string>
@@ -79,4 +106,15 @@
         <item>Puzzle</item>
         <item>Shooter</item>
     </string-array>
+    <string name="import_folder_title">Have a whole folder of games?</string>
+    <string name="import_folder_body">Pick the platform and emulator above, then choose the folder. Every game inside is added at once.</string>
+    <string name="import_folder_action">IMPORT WHOLE FOLDER</string>
+    <string name="import_folder_scanning">Scanning folder…</string>
+    <string name="import_folder_none">No new games found in that folder</string>
+    <plurals name="import_folder_done">
+        <item quantity="one">%d game added</item>
+        <item quantity="other">%d games added</item>
+    </plurals>
+    <string name="settings_set_home">Use RetroHub as Home screen</string>
+    <string name="settings_recheck">Re-check installed emulators</string>
 </resources>

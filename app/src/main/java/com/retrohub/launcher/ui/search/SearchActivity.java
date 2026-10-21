@@ -16,11 +16,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.retrohub.launcher.R;
 import com.retrohub.launcher.adapter.GameGridAdapter;
+import com.retrohub.launcher.data.db.AppDatabase;
+import com.retrohub.launcher.data.model.Emulator;
 import com.retrohub.launcher.data.model.GameEntry;
 import com.retrohub.launcher.data.model.Platform;
 import com.retrohub.launcher.data.repository.GameRepository;
+import com.retrohub.launcher.data.repository.EmulatorRepository;
 import com.retrohub.launcher.data.repository.PlatformRepository;
 import com.retrohub.launcher.ui.detail.GameDetailBottomSheet;
+import com.retrohub.launcher.util.AppLauncher;
+import com.retrohub.launcher.util.SessionTimer;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -68,13 +73,15 @@ public class SearchActivity extends AppCompatActivity {
             @Override public void onClick(GameEntry game) {
                 GameDetailBottomSheet.newInstance(game.id).show(getSupportFragmentManager(), "detail");
             }
+            @Override public void onPlay(GameEntry game) { play(game); }
             @Override public void onEdit(GameEntry game) {}
             @Override public void onDelete(GameEntry game) {}
             @Override public void onToggleFavorite(GameEntry game) {
                 gameRepo.setFavorite(game.id, !game.isFavorite);
             }
         });
-        rv.setLayoutManager(new GridLayoutManager(this, 2));
+        int columns = Math.max(2, getResources().getConfiguration().screenWidthDp / 180);
+        rv.setLayoutManager(new GridLayoutManager(this, columns));
         rv.setAdapter(adapter);
 
         platformRepo.observeAll().observe(this, list -> {
@@ -102,5 +109,18 @@ public class SearchActivity extends AppCompatActivity {
         if (currentSource != null) currentSource.removeObserver(observer);
         currentSource = (q == null || q.isEmpty()) ? gameRepo.observeAll() : gameRepo.search(q);
         currentSource.observe((LifecycleOwner) this, observer);
+    }
+
+    private void play(GameEntry game) {
+        AppDatabase.io.execute(() -> {
+            Emulator emulator = new EmulatorRepository(getApplicationContext()).getById(game.emulatorId);
+            runOnUiThread(() -> {
+                if (isFinishing() || isDestroyed()) return;
+                if (AppLauncher.launch(this, game, emulator)) {
+                    SessionTimer.start(this, game.id);
+                    gameRepo.markPlayedNow(game.id);
+                }
+            });
+        });
     }
 }

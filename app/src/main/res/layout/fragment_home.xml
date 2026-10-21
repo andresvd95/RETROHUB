@@ -62,6 +62,73 @@
             android:textColor="@color/text_muted"
             android:textSize="12sp"/>
 
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/quick_start_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_l"
+            android:layout_marginTop="@dimen/space_l"
+            android:layout_marginEnd="@dimen/space_l"
+            android:visibility="gone"
+            app:cardBackgroundColor="@color/bg_surface"
+            app:cardCornerRadius="@dimen/card_radius"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/brand_red"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/space_l">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/quick_start_title"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_xs"
+                    android:lineSpacingExtra="2dp"
+                    android:text="@string/quick_start_body"
+                    android:textColor="@color/text_muted"
+                    android:textSize="13sp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_m"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/quick_add_emulator"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/touch_min"
+                        android:layout_weight="1"
+                        android:text="@string/quick_start_emulator"
+                        android:textColor="@color/text_primary"
+                        android:textSize="11sp"/>
+
+                    <Button
+                        android:id="@+id/quick_add_game"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/touch_min"
+                        android:layout_marginStart="@dimen/space_s"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_play_button"
+                        android:text="@string/quick_start_game"
+                        android:textColor="@color/text_primary"
+                        android:textSize="11sp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
         <!-- Filter tabs -->
         <HorizontalScrollView
             android:id="@+id/home_tabs_scroll"
@@ -155,7 +222,7 @@
                 android:background="@drawable/bg_card_surface"
                 android:gravity="center"
                 android:padding="@dimen/space_l"
-                android:text="Add your first game to see it here"
+                android:text="@string/add_first_game_here"
                 android:textColor="@color/text_dim"
                 android:textSize="13sp"
                 android:visibility="gone"/>

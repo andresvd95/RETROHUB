@@ -41,6 +41,8 @@ public class AddEmulatorActivity extends AppCompatActivity {
     private ImageView iconPreview;
     private String selectedIconPath;
     private int editingId = -1;
+    private Emulator editingEmulator;
+    private String pendingPlatformId;
 
     private EmulatorRepository repo;
     private PlatformRepository platformRepo;
@@ -85,6 +87,7 @@ public class AddEmulatorActivity extends AppCompatActivity {
                     AddEmulatorActivity.this, android.R.layout.simple_spinner_item, labels);
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 platformSpinner.setAdapter(adapter);
+                if (pendingPlatformId != null) selectPlatform(pendingPlatformId);
             });
         });
     }
@@ -94,10 +97,12 @@ public class AddEmulatorActivity extends AppCompatActivity {
             Emulator e = repo.getById(id);
             if (e == null) return;
             runOnUiThread(() -> {
+                editingEmulator = e;
                 nameInput.setText(e.name);
                 packageInput.setText(e.packageName);
                 activityInput.setText(e.activityName);
                 selectedIconPath = e.iconUri;
+                pendingPlatformId = e.platformId;
                 if (e.iconUri != null && !e.iconUri.isEmpty()) {
                     Glide.with(iconPreview).load(new File(e.iconUri)).into(iconPreview);
                 }
@@ -170,7 +175,7 @@ public class AddEmulatorActivity extends AppCompatActivity {
             Toast.makeText(this, "Pick a platform", Toast.LENGTH_SHORT).show();
             return;
         }
-        Emulator e = new Emulator();
+        Emulator e = editingEmulator == null ? new Emulator() : editingEmulator;
         if (editingId > 0) e.id = editingId;
         e.name = name;
         e.packageName = pkg;

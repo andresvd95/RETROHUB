@@ -20,11 +20,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.retrohub.launcher.R;
 import com.retrohub.launcher.adapter.GameGridAdapter;
+import com.retrohub.launcher.data.db.AppDatabase;
+import com.retrohub.launcher.data.model.Emulator;
 import com.retrohub.launcher.data.model.GameEntry;
 import com.retrohub.launcher.data.model.Platform;
 import com.retrohub.launcher.ui.detail.GameDetailBottomSheet;
 import com.retrohub.launcher.ui.game.AddGameActivity;
 import com.retrohub.launcher.ui.game.EditGameActivity;
+import com.retrohub.launcher.data.repository.EmulatorRepository;
+import com.retrohub.launcher.util.AppLauncher;
+import com.retrohub.launcher.util.SessionTimer;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -65,9 +70,11 @@ public class LibraryFragment extends Fragment {
         FloatingActionButton fab = v.findViewById(R.id.add_game_fab);
         View sortBtn = v.findViewById(R.id.sort_btn);
 
-        rv.setLayoutManager(new GridLayoutManager(requireContext(), 2));
+        int columns = Math.max(2, getResources().getConfiguration().screenWidthDp / 180);
+        rv.setLayoutManager(new GridLayoutManager(requireContext(), columns));
         adapter = new GameGridAdapter(platformIndex, new GameGridAdapter.OnGameAction() {
             @Override public void onClick(GameEntry game) { openDetail(game); }
+            @Override public void onPlay(GameEntry game) { play(game); }
             @Override public void onEdit(GameEntry game) {
                 Intent i = new Intent(requireContext(), EditGameActivity.class);
                 i.putExtra(EditGameActivity.EXTRA_GAME_ID, game.id);
@@ -168,5 +175,19 @@ public class LibraryFragment extends Fragment {
 
     private void openDetail(GameEntry g) {
         GameDetailBottomSheet.newInstance(g.id).show(getParentFragmentManager(), "detail");
+    }
+
+    private void play(GameEntry game) {
+        android.content.Context appContext = requireContext().getApplicationContext();
+        AppDatabase.io.execute(() -> {
+            Emulator emulator = new EmulatorRepository(appContext).getById(game.emulatorId);
+            if (!isAdded()) return;
+            requireActivity().runOnUiThread(() -> {
+                if (AppLauncher.launch(requireContext(), game, emulator)) {
+                    SessionTimer.start(requireContext(), game.id);
+                    vm.games.markPlayedNow(game.id);
+                }
+            });
+        });
     }
 }

@@ -55,6 +55,17 @@ public class GameRepository {
         AppDatabase.io.execute(() -> dao.addPlayTime(gameId, seconds, System.currentTimeMillis()));
     }
 
+    /** Inserts many games at once (folder import). Call from a background thread. */
+    public void insertAllSync(List<GameEntry> games) {
+        long now = System.currentTimeMillis();
+        for (GameEntry g : games) if (g.addedAt == 0) g.addedAt = now;
+        dao.insertAll(games);
+    }
+
+    public java.util.Set<String> getAllRomPathsSync() {
+        return new java.util.HashSet<>(dao.getAllRomPathsSync());
+    }
+
     public GameEntry getById(int id) { return dao.getById(id); }
     public int countByPlatformSync(String platformId) { return dao.countByPlatformSync(platformId); }
     public List<GameEntry> getAllSync() { return dao.getAllSync(); }

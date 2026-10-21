@@ -1,9 +1,12 @@
 package com.retrohub.launcher.ui.settings;
 
 import android.app.AlertDialog;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +33,8 @@ public class SettingsFragment extends Fragment {
         TextView version = v.findViewById(R.id.version_text);
         version.setText(versionString());
 
+        v.findViewById(R.id.btn_set_home).setOnClickListener(view -> openHomeSettings());
+
         v.findViewById(R.id.btn_refresh_install).setOnClickListener(view ->
             new EmulatorRepository(requireContext()).refreshInstalledFlags());
 
@@ -41,6 +46,15 @@ public class SettingsFragment extends Fragment {
                 .setNegativeButton(R.string.cancel, null)
                 .show();
         });
+    }
+
+    /** Lets the user pick RetroHub as the default Home app, like a console. */
+    private void openHomeSettings() {
+        try {
+            startActivity(new Intent(Settings.ACTION_HOME_SETTINGS));
+        } catch (ActivityNotFoundException e) {
+            startActivity(new Intent(Settings.ACTION_SETTINGS));
+        }
     }
 
     private void clearAll() {
