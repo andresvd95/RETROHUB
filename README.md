@@ -1,8 +1,35 @@
-# RetroHub V2
+<div align="center">
+
+# 🎮 RetroHub V2
+
+**One console-like library for all your Android emulators. Every game starts with a single tap.**
+
+[![Download APK](https://img.shields.io/badge/%E2%AC%87%20Download%20APK-v2.0.0-E50027?style=for-the-badge&logo=android&logoColor=white)](https://github.com/andresvd95/RETROHUB/releases/download/v2.0.0/RetroHub-v2.0.0.apk)
+
+[![Latest release](https://img.shields.io/github/v/release/andresvd95/RETROHUB?style=flat-square&color=E50027)](https://github.com/andresvd95/RETROHUB/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/andresvd95/RETROHUB/total?style=flat-square&color=555)](https://github.com/andresvd95/RETROHUB/releases)
+![Android 8.0+](https://img.shields.io/badge/Android-8.0%2B-3DDC84?style=flat-square&logo=android&logoColor=white)
+![Free & offline](https://img.shields.io/badge/Free%20%26%20offline-no%20accounts-555?style=flat-square)
+
+</div>
 
 RetroHub is a free, open-source Android launcher for retro games. Point it at your emulators and your ROM folders, and it turns them into one console-like library where every game starts with a single tap.
 
 It works fully offline. Platforms, emulators, games, covers, favorites, play history and play time live in a local database on the device. RetroHub does not include ROMs, BIOS files, or emulators.
+
+**Jump to:** [Install](#install) · [Screenshots](#screenshots) · [Get playing](#get-playing-in-3-steps) · [What's new](#whats-new-in-v2) · [vs Beacon](#retrohub-vs-beacon-game-launcher) · [Build](#build)
+
+---
+
+## Install
+
+1. Tap **⬇ Download APK** above on your Android device (or grab it from the [Releases page](https://github.com/andresvd95/RETROHUB/releases/latest)).
+2. Open the downloaded `RetroHub-v2.0.0.apk`. If Android asks, allow installs from your browser or file manager ("Install unknown apps").
+3. Open RetroHub and follow the setup card on the Home screen.
+
+**Requirements:** Android 8.0 or newer, plus at least one emulator installed (RetroArch, PPSSPP, Dolphin, …).
+
+> This is a debug-signed build published directly from GitHub, not a Play Store release. Android may show a warning before installing it.
 
 ---
 
