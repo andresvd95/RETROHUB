@@ -42,7 +42,7 @@ public class LibraryFragment extends Fragment {
 
     private LibraryViewModel vm;
     private RecyclerView rv;
-    private TextView empty;
+    private View empty;
     private LinearLayout chips;
     private GameGridAdapter adapter;
     private final Map<String, Platform> platformIndex = new HashMap<>();

@@ -6,6 +6,28 @@ It works fully offline. Platforms, emulators, games, covers, favorites, play his
 
 ---
 
+## Screenshots
+
+Captured from RetroHub V2 running on a 1080p Android device in landscape, right after a fresh install (so the library is still empty).
+
+| Home | Library |
+|---|---|
+| ![Home with guided first-run setup](docs/screenshots/01-home.png) | ![Library with platform filter chips](docs/screenshots/02-library.png) |
+
+| Platforms | Emulators |
+|---|---|
+| ![Platforms list](docs/screenshots/03-platforms.png) | ![Emulators list](docs/screenshots/04-emulators.png) |
+
+| Add emulator | Add game |
+|---|---|
+| ![Add emulator form](docs/screenshots/06-add-emulator.png) | ![Add game form](docs/screenshots/07-add-game.png) |
+
+| Settings (Home screen mode) |
+|---|
+| ![Settings](docs/screenshots/05-settings.png) |
+
+---
+
 ## Get playing in 3 steps
 
 1. **Add an emulator** – Home → *Add emulator*. Pick it from the list of known emulators (RetroArch, PPSSPP, Dolphin, AetherSX2, DraStic, …) or from your installed apps, and choose its platform.

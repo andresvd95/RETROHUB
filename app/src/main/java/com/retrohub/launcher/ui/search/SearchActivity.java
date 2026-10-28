@@ -41,7 +41,7 @@ public class SearchActivity extends AppCompatActivity {
     private Runnable pending;
 
     private RecyclerView rv;
-    private TextView empty;
+    private View empty;
     private GameGridAdapter adapter;
     private final Map<String, Platform> platformIndex = new HashMap<>();
 

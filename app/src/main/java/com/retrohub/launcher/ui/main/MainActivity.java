@@ -79,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
             .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
             .replace(R.id.fragment_container, fragment)
             .commit();
-        bottomNav.setSelectedItemId(navId);
     }
 
     /** Public so fragments can navigate the bottom nav (e.g. a "view platforms" link). */
